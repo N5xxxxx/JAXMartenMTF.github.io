@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نظام المخالفات</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="topnav">
+  <span class="nav-brand" onclick="showPage('home')">Nice City RP</span>
+  <button class="nav-home-btn" onclick="showPage('home')"> home</button>
+</nav>
+
+<!-- ===== APP WRAPPER ===== -->
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <span class="sidebar-label">القوائم</span>
+
+    <button class="sidebar-btn ban-btn" id="sb-bans" onclick="showPage('bans')">
+      <span class="icon"></span>
+      <span class="label">Ban</span>
+    </button>
+
+    <button class="sidebar-btn warn-btn" id="sb-warns" onclick="showPage('warns')">
+      <span class="icon"></span>
+      <span class="label">Warn's</span>
+    </button>
+
+    <button class="sidebar-btn circ-btn" id="sb-circulars" onclick="showPage('circulars')">
+      <span class="icon"></span>
+      <span class="label">تعاميم المسؤولين</span>
+    </button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- ==================== HOME ==================== -->
+    <section id="home" class="active">
+
+      <!-- وسط الصفحة -->
+      <div class="home-center">
+        <h1>نظام المخالفات</h1>
+        <p class="sub">مرجع البلاغات الرسمي لإدارة السيرفر</p>
+        <button class="btn-main" onclick="showPage('bans')">عرض المخالفات</button>
+      </div>
+
+      <!-- أسفل الصفحة: أزرار + فوتر -->
+      <div class="home-bottom">
+        <div class="social-btns">
+          <!-- Discord -->
+          <a class="social-btn -btn" href="https://discord.gg/nc4" target="_blank">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+            Discord
+          </a>
+
+          <!-- TikTok -->
+          <a class="social-btn -btn" href="#" target="_blank">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
+            </svg>
+            TikTok
+          </a>
+        </div>
+
+        <footer class="site-footer">
+          هذه الصفحة بحقوق <span>NiceCity ©</span> جميع الحقوق محفوظة
+        </footer>
+      </div>
+
+    </section>
+
+    <!-- ==================== BANS ==================== -->
+    <section id="bans" class="page">
+      <div class="page-header">
+        <h2 class="page-title">🚫 المخالفات — Ban</h2>
+        <p class="page-subtitle">المخالفات التي تستوجب الحظر عن السيرفر</p>
+      </div>
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="banSearch" placeholder="ابحث عن مخالفة..." oninput="filterGrid('bansGrid','banSearch')" />
+      </div>
+      <div class="grid" id="bansGrid">
+
+        <!-- 1 — أقل مدة: تحذير ← ساعتين ← 6 ساعات ← باند يوم -->
+        <div class="card" data-search="سلاح أبيض منطقة آمنة HOME الخروج من الرول صيفة الألم النطع تيزر ضرب في أمنه">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>استخدام سلاح أبيض بالمنطقة الآمنة</span>
+            <span>حمل سلاح بالآمنة</span>
+            <span>استخدام HOME</span>
+            <span>الخروج من الرول</span>
+            <span>عدم التحدث بصيفة الألم</span>
+            <span>النطع وهو حامل سلاح أو تيزر</span>
+            <span>ضرب في أمنه</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : تحذير</li>
+            <li>الثانية : ساعتين</li>
+            <li>الثالثة : 6 ساعات</li>
+            <li>الرابعة : باند يوم</li>
+          </ul>
+          <p class="description">مخالفات بسيطة تتعلق بالسلوك العام والانضباط</p>
+        </div>
+
+        <!-- 2 — يومين ← 4 أيام ← أسبوع ← 10 أيام -->
+        <div class="card" data-search="عدم تقدير الحياة خطف غير واقعية مقاومة شخصين اقتعال فايت توكسك إهانة جثة تواصل غير شرعي">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>عدم تقدير الحياة</span>
+            <span>محاولة خطف غير واقعية</span>
+            <span>ربط مواضيع خارج الرول</span>
+            <span>مقاومة شخصين أو أكثر</span>
+            <span>اقتعال فايت</span>
+            <span>التواصل الغير شرعي تهديد الآمنة</span>
+            <span>توكسك — إهانة جثة</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : يومين</li>
+            <li>الثانية : 4 أيام</li>
+            <li>الثالثة : أسبوع</li>
+            <li>الرابعة : 10 أيام</li>
+          </ul>
+          <p class="description">مخالفات متوسطة تؤثر على جودة الرول بلاي</p>
+        </div>
+
+        <!-- 3 — يومين ← 3 أيام ← أسبوع ← 10 أيام -->
+        <div class="card" data-search="التحدث خارج الرول برفع فيك ذكر سيرفرات تشويه رول بلاي طلق يقوسق كلبشة محصنة سرقة سيارة ملابس حكومية">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>التحدث خارج الرول ( برفع فيك أو ذكر سيرفرات )</span>
+            <span>تشويه محتوى الرول بلاي</span>
+            <span>طلق وهو يقوسق</span>
+            <span>كلبشة في مناطق محصنة</span>
+            <span>سرقة سيارة أو لبس ملابس حكومية</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : يومين</li>
+            <li>الثانية : 3 أيام</li>
+            <li>الثالثة : أسبوع</li>
+            <li>الرابعة : 10 أيام</li>
+          </ul>
+          <p class="description">مخالفات تخرج من أجواء الرول بلاي وتضر بالتجربة الجماعية</p>
+        </div>
+
+        <!-- 4 — 3 أيام ← 6 أيام ← أسبوع ← أسبوعين -->
+        <div class="card" data-search="القتل العشوائي الاستفزاز تهديد بالأمانة تخريب سيناريو طلق عشوائي سرقة بالأمانة">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>القتل العشوائي</span>
+            <span>الاستفزاز بالآمنة أو تهديد بالأمانة</span>
+            <span>تخريب سيناريو</span>
+            <span>طلق عشوائي</span>
+            <span>سرقة بالأمانة</span>
+          </h3>
+          <p class="note">( يكتفى بالإنذار في حال أعاد المسروقات )</p>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : 3 أيام</li>
+            <li>الثانية : 6 أيام</li>
+            <li>الثالثة : أسبوع</li>
+            <li>الرابعة : أسبوعين</li>
+          </ul>
+          <p class="description">مخالفات عالية الخطورة تستوجب التشديد بالعقوبات</p>
+        </div>
+
+        <!-- 5 — 3 أيام ← 6 أيام ← أسبوع ← أسبوعين -->
+        <div class="card" data-search="التخريب التلويث خارج القسم القتل في المنطقة الآمنة مخالفة قوانين السيرفر">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>التخريب</span>
+            <span>التلويث خارج القسم</span>
+            <span>القتل في المنطقة الآمنة</span>
+            <span>مخالفة قوانين السيرفر</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : 3 أيام</li>
+            <li>الثانية : 6 أيام</li>
+            <li>الثالثة : أسبوع</li>
+            <li>الرابعة : أسبوعين</li>
+          </ul>
+          <p class="description">مخالفات متكررة وخطيرة تُظهر سوء نية في اللعب</p>
+        </div>
+
+        <!-- 6 — 3 أيام ← 6 أيام ← أسبوع ← أسبوعين -->
+        <div class="card" data-search="إعدام بدون أدلة السب يامحرام كلب ثغرات تحلل سيناريو نقل أموال تخريب مناطق آمنة ألفاظ رول بلاي">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>إعدام بدون ثلاث أدلة</span>
+            <span>السب ( يامحرام أو كلب.. )</span>
+            <span>استعمال ثغرات</span>
+            <span>تحلل أثناء سيناريو</span>
+            <span>نقل أموال بين الشخصيات</span>
+            <span>تخريب بالمناطق الآمنة</span>
+            <span>استعمال ألفاظ لا تتطابق مع الرول بلاي</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : 3 أيام</li>
+            <li>الثانية : 6 أيام</li>
+            <li>الثالثة : أسبوع</li>
+            <li>الرابعة : أسبوعين</li>
+          </ul>
+          <p class="description">مخالفات خطيرة تمس العدالة داخل الرول وتتطلب إجراءات حازمة</p>
+        </div>
+
+        <!-- 7 — 3 أيام ← 6 أيام ← أسبوع ← أسبوعين -->
+        <div class="card" data-search="الصدم العشوائي تهريب أشخاص إهانة مسقط تحريك جنة التحدث أثناء التفتيش تعطيل عمل الرقابة">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>الصدم العشوائي</span>
+            <span>تهريب أشخاص لا تربطك بهم معرفة مسبقة</span>
+            <span>إهانة مسقط</span>
+            <span>تحريك جنة التحدث أثناء التفتيش</span>
+            <span>تعطيل عمل الرقابة</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : 3 أيام</li>
+            <li>الثانية : 6 أيام</li>
+            <li>الثالثة : أسبوع</li>
+            <li>الرابعة : أسبوعين</li>
+          </ul>
+          <p class="description">مخالفات تؤثر على سير اللعب أو تسبب فوضى داخل السيرفر</p>
+        </div>
+
+        <!-- 8 — 3 أيام ← أسبوع ← أسبوعين ← نهائي -->
+        <div class="card" data-search="إساءة استخدام صلاحيات الرول الوظيفي تجاوز صلاحيات شخصية تصرف مخالف">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>إساءة استخدام صلاحيات الرول الوظيفي</span>
+            <span>تجاوز صلاحيات الشخصية</span>
+            <span>تصرف مخالف لطبيعة الرول</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : 3 أيام</li>
+            <li>الثانية : أسبوع</li>
+            <li>الثالثة : أسبوعين</li>
+            <li>الرابعة : نهائي</li>
+          </ul>
+          <p class="description">خاص بالمنتسبين ذوي الأدوار الوظيفية داخل السيرفر</p>
+        </div>
+
+        <!-- 9 — أسبوع ← أسبوعين ← شهر ← نهائي -->
+        <div class="card" data-search="تلفيت تخريب مستشفى إهانة مسعف موظفين ورش مطعم">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>تلفيت</span>
+            <span>تخريب في المستشفى</span>
+            <span>إهانة لمسعف أو موظفين الورش والمطعم</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : أسبوع</li>
+            <li>الثانية : أسبوعين</li>
+            <li>الثالثة : شهر</li>
+            <li>الرابعة : نهائي</li>
+          </ul>
+          <p class="description">مخالفات تمس الجهات المدنية وتستوجب عقوبات مشددة</p>
+        </div>
+
+        <!-- 10 — أسبوع ← أسبوعين ← شهر ← نهائي -->
+        <div class="card" data-search="ضرب رول مضايقة شخصية تلاعب إداري رشوة">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>ضرب رول لشخص خارج السيناريو</span>
+            <span>مضايقة شخصية خارج إطار اللعبة</span>
+            <span>التلاعب الإداري أو محاولة الرشوة</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : أسبوع</li>
+            <li>الثانية : أسبوعين</li>
+            <li>الثالثة : شهر</li>
+            <li>الرابعة : نهائي</li>
+          </ul>
+          <p class="description">سلوكيات تمس النزاهة وتضر بالمجتمع الكامل للسيرفر</p>
+        </div>
+
+        <!-- 11 — تقدير الإداري -->
+        <div class="card" data-search="مداهمة القسم استخدام ثغرات مخالفة قوانين السيرفر تقدير إداري">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>مداهمة القسم</span>
+            <span>استخدام ثغرات</span>
+            <span>مخالفة قوانين السيرفر</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>تكون محاسبته بتقدير الإداري</li>
+          </ul>
+          <p class="description">مقدر من الإداري حسب الشكوى والبند أو الحالة</p>
+        </div>
+
+        <!-- 12 — نهائي فوري -->
+        <div class="card" data-search="نشر سيرفرات الهاك تدبيل القذف ألفاظ جنسية لعن أباء أمهات تحرش">
+          <span class="card-badge badge-ban">Ban</span>
+          <h3>
+            <span>نشر سيرفرات أخر بشكل واضح</span>
+            <span>التحرش بجميع أنواعه</span>
+            <span>الهاك — تدبيل</span>
+            <span>القذف — ألفاظ جنسية</span>
+            <span>لعن أباء أو أمهات</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>باند نهائي دون استدعاء</li>
+          </ul>
+          <p class="description">مخالفات صفر تسامح — يُمنع الإداري إصلاحها دون استدعاء العضو</p>
+        </div>
+
+      </div><!-- /bansGrid -->
+    </section>
+
+    <!-- ==================== WARNS ==================== -->
+    <section id="warns" class="page">
+      <div class="page-header">
+        <h2 class="page-title">⚠️ الإنذارات — Warn</h2>
+        <p class="page-subtitle">المخالفات التي تستوجب إنذاراً رسمياً</p>
+      </div>
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="warnSearch" placeholder="ابحث عن إنذار..." oninput="filterGrid('warnsGrid','warnSearch')" />
+      </div>
+      <div class="grid" id="warnsGrid">
+
+        <div class="card warn-card" data-search="تجاوز سرعة منطقة آمنة خطوط حمراء قواعد السيرفر بسيط">
+          <span class="card-badge badge-warn">Warn</span>
+          <h3>
+            <span>تجاوز السرعة المسموح بها داخل المنطقة الآمنة</span>
+            <span>عدم الالتزام بالخطوط الحمراء</span>
+            <span>كسر قواعد السيرفر بشكل بسيط</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : إنذار شفهي</li>
+            <li>الثانية : إنذار رسمي</li>
+            <li>الثالثة : إنذار + باند يوم</li>
+            <li>الرابعة : باند 3 أيام</li>
+          </ul>
+          <p class="description">مخالفات بسيطة تحتاج تنبيه ومتابعة</p>
+        </div>
+
+        <div class="card warn-card" data-search="إزعاج تشانل عام كلام غير لائق عدم الانتباه تعليمات الإداري">
+          <span class="card-badge badge-warn">Warn</span>
+          <h3>
+            <span>الإزعاج داخل التشانل العام</span>
+            <span>كلام غير لائق بشكل خفيف</span>
+            <span>عدم الانتباه لتعليمات الإداري</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : إنذار</li>
+            <li>الثانية : ميوت</li>
+            <li>الثالثة : باند يوم</li>
+            <li>الرابعة : باند 3 أيام</li>
+          </ul>
+          <p class="description">تصرفات تؤثر على جو السيرفر العام</p>
+        </div>
+
+        <div class="card warn-card" data-search="عدم احترام لاعب سيناريو سوء أدب رول عدم الالتزام الدور">
+          <span class="card-badge badge-warn">Warn</span>
+          <h3>
+            <span>عدم احترام لاعب آخر داخل السيناريو</span>
+            <span>سوء أدب في الرول</span>
+            <span>عدم الالتزام بالدور المحدد</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : إنذار</li>
+            <li>الثانية : إنذار + تنبيه</li>
+            <li>الثالثة : باند يومين</li>
+            <li>الرابعة : باند أسبوع</li>
+          </ul>
+          <p class="description">مخالفات تمس جودة التفاعل بين اللاعبين</p>
+        </div>
+
+        <div class="card warn-card" data-search="دخول منطقة محظورة بدون إذن تجاوز حواجز رسمية نقاط تفتيش">
+          <span class="card-badge badge-warn">Warn</span>
+          <h3>
+            <span>دخول منطقة محظورة بدون إذن</span>
+            <span>تجاوز حواجز رسمية</span>
+            <span>عدم التوقف عند نقاط التفتيش</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : إنذار</li>
+            <li>الثانية : إنذار + باند ساعتين</li>
+            <li>الثالثة : باند يوم</li>
+            <li>الرابعة : باند 3 أيام</li>
+          </ul>
+          <p class="description">مخالفات تتعلق بعدم الالتزام بالحدود الرسمية داخل اللعبة</p>
+        </div>
+
+        <div class="card warn-card" data-search="إفصاح معلومات شخصية لاعب دوكس تهديد شخصي خارج الرول">
+          <span class="card-badge badge-warn">Warn</span>
+          <h3>
+            <span>الإفصاح عن معلومات شخصية للاعب آخر</span>
+            <span>التهديد الشخصي خارج إطار الرول</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : إنذار + باند يومين</li>
+            <li>الثانية : باند أسبوع</li>
+            <li>الثالثة : باند نهائي</li>
+          </ul>
+          <p class="description">مخالفات خطيرة في إطار الـ Warn تستوجب التصعيد السريع</p>
+        </div>
+
+        <div class="card warn-card" data-search="إفراط طلبات إداري إزعاج طاقم إداري بلاغات كيدية">
+          <span class="card-badge badge-warn">Warn</span>
+          <h3>
+            <span>الإفراط في طلبات الإداري بدون سبب</span>
+            <span>إزعاج الطاقم الإداري</span>
+            <span>تقديم بلاغات كيدية</span>
+          </h3>
+          <p class="penalties-label">المحاسبات كالآتي...</p>
+          <ul class="penalty-list">
+            <li>الأولى : إنذار</li>
+            <li>الثانية : ميوت ساعة</li>
+            <li>الثالثة : باند يوم</li>
+          </ul>
+          <p class="description">يُمنع إرهاق الطاقم الإداري بطلبات وهمية أو كيدية</p>
+        </div>
+
+      </div><!-- /warnsGrid -->
+    </section>
+
+    <!-- ==================== CIRCULARS ==================== -->
+    <section id="circulars" class="page">
+      <div class="page-header">
+        <h2 class="page-title">📢 تعاميم المسؤولين</h2>
+        <p class="page-subtitle">القرارات والتعاميم الرسمية الصادرة من الإدارة</p>
+      </div>
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="circSearch" placeholder="ابحث عن تعميم..." oninput="filterGrid('circularsGrid','circSearch')" />
+      </div>
+      <div class="grid" id="circularsGrid">
+
+        <div class="card circular-card" data-search="تعميم قرار إداري عام قوانين السيرفر">
+          <span class="card-badge badge-circ">تعميم</span>
+          <p class="circ-date">📅 --/--/----</p>
+          <h3><span>تعميم عام — قوانين السيرفر</span></h3>
+          <p class="description">يُعلم جميع اللاعبين بضرورة الالتزام الكامل بقوانين السيرفر المعمول بها. أي مخالفة ستُطبق عليها العقوبات الواردة في جدول المخالفات دون استثناء.</p>
+        </div>
+
+        <div class="card circular-card" data-search="تحديث قائمة المناطق الآمنة إدارة">
+          <span class="card-badge badge-circ">تعميم</span>
+          <p class="circ-date">📅 --/--/----</p>
+          <h3><span>تحديث قائمة المناطق الآمنة</span></h3>
+          <p class="description">تم تحديث حدود المناطق الآمنة داخل السيرفر. يُرجى مراجعة الخريطة الرسمية للاطلاع على التفاصيل الكاملة.</p>
+        </div>
+
+        <div class="card circular-card" data-search="تذكير قواعد السلوك داخل الرول سيناريو">
+          <span class="card-badge badge-circ">تعميم</span>
+          <p class="circ-date">📅 --/--/----</p>
+          <h3><span>تذكير بقواعد السلوك داخل الرول</span></h3>
+          <p class="description">تذكير لجميع اللاعبين بضرورة الالتزام بطبيعة الشخصية الخاصة بهم وعدم الخروج عن السيناريو في أي وقت.</p>
+        </div>
+
+        <div class="card circular-card" data-search="تعميم جديد إداري">
+          <span class="card-badge badge-circ">تعميم</span>
+          <p class="circ-date">📅 --/--/----</p>
+          <h3><span>اكتب عنوان التعميم هنا</span></h3>
+          <p class="description">اكتب نص التعميم هنا...</p>
+        </div>
+
+      </div><!-- /circularsGrid -->
+    </section>
+
+  </main>
+</div><!-- /app -->
+
+<script>
+  function showPage(id) {
+    // إخفاء كل الصفحات
+    document.querySelectorAll('section').forEach(s => {
+      s.classList.remove('active');
+      s.style.display = 'none';
+    });
+
+    // إظهار الصفحة المطلوبة
+    const target = document.getElementById(id);
+    target.style.display = id === 'home' ? 'flex' : 'block';
+    // force reflow for animation
+    void target.offsetWidth;
+    target.classList.add('active');
+
+    // تحديث السايدبار
+    document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+    const sb = document.getElementById('sb-' + id);
+    if (sb) sb.classList.add('active');
+
+    return false;
+  }
+
+  function filterGrid(gridId, inputId) {
+    const query = document.getElementById(inputId).value.trim().toLowerCase();
+    const cards = document.querySelectorAll('#' + gridId + ' .card');
+    let any = false;
+
+    cards.forEach(card => {
+      const match = card.getAttribute('data-search').toLowerCase().includes(query);
+      if (query === '' || match) {
+        card.classList.remove('hidden');
+        any = true;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    const grid = document.getElementById(gridId);
+    let noRes = grid.querySelector('.no-results');
+    if (!any) {
+      if (!noRes) {
+        noRes = document.createElement('p');
+        noRes.className = 'no-results';
+        noRes.textContent = 'لا توجد نتائج مطابقة 🔍';
+        grid.appendChild(noRes);
+      }
+    } else {
+      if (noRes) noRes.remove();
+    }
+  }
+
+  // تشغيل الصفحة الرئيسية عند الفتح
+  showPage('home');
+</script>
+
+</body>
+</html>
