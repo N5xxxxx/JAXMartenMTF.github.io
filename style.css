@@ -243,13 +243,13 @@ body {
 .discord-btn {
   background: rgba(15,4,4,0.75);
   border-color: rgba(100,120,240,0.45);
-  color: #99aaee;
+  color: #7c1900;
   backdrop-filter: blur(6px);
 }
 
 .discord-btn:hover {
   border-color: #7289da;
-  color: #b0c0ff;
+  color: #7c1900;
   background: rgba(88,101,242,0.12);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(88,101,242,0.2);
@@ -258,13 +258,13 @@ body {
 .tiktok-btn {
   background: rgba(15,4,4,0.75);
   border-color: rgba(255,140,0,0.45);
-  color: #ffaa55;
+  color: #7c1900;
   backdrop-filter: blur(6px);
 }
 
 .tiktok-btn:hover {
   border-color: #ff8c00;
-  color: #ffcc77;
+  color: #7c1900;
   background: rgba(255,100,0,0.1);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255,100,0,0.2);
